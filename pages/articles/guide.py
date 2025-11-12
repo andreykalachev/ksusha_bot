@@ -1,0 +1,34 @@
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram.ext import ContextTypes
+from translation import translation_loader as tl
+from .menu import ArticleCallback
+from pages import common
+from translation.languages import Locale
+from utils import statistics
+from statistics.page_visits import Page
+
+
+GUIDE_TELEGRAM_FILE_ID = 'BQACAgIAAxkBAAICgGkbkrXX7wzvnSeNFsKz-tSeFGxWAALziAAC4YjYSBmKhRMNl2F0NgQ'
+
+
+async def show_guide(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    locale = common.get_locale(context)
+
+    statistics.increment_page(Page.GUIDE)
+
+    message = tl.load(tl.GUIDE_TEXT, context)
+
+    keyboard = [
+        [InlineKeyboardButton(tl.load(tl.LABEL_QUIZ, context), callback_data=ArticleCallback.START_QUIZ.value)],
+        [InlineKeyboardButton(tl.load(tl.LABEL_MAIN_MENU, context), callback_data=ArticleCallback.MAIN_MENU.value)],
+        [InlineKeyboardButton(tl.load(tl.LABEL_BACK, context), callback_data=ArticleCallback.BACK_TO_ARTICLES.value)],
+    ]
+
+    await query.edit_message_text(message, reply_markup=InlineKeyboardMarkup(keyboard))
+
+    if locale == Locale.EN.value:
+        return
+
+    await context.bot.send_document(chat_id=query.message.chat_id, document=GUIDE_TELEGRAM_FILE_ID)

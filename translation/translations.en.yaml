@@ -1,0 +1,70 @@
+ABOUT_TEXT: |
+  Hello & welcome! ✨
+
+  I'm Ksenia ALF — a third‑generation artist painting in a soft, abstract style. I create artworks that celebrate femininity, warmth and emotional color.
+
+  This bot is your little creative studio: explore paintings, learn through short guides, try a playful art-style quiz and connect with me for commissions or sessions. Tap around and let's discover what colors say about you! 🎨💬
+LABEL_SERVICES: "🧡 Services"
+LABEL_PAINTINGS: "🖼️ Paintings"
+LABEL_ARTICLES: "📝 Articles"
+LABEL_CONTACTS: "📬 Contacts"
+LABEL_BACK: "🔙 Back"
+LABEL_QUIZ: "🎨 Art Style Quiz"
+SERVICES_TEXT: |
+  I’m happy to see you here — welcome to a cozy space of creativity and color 🎨✨
+
+  Here’s how we can work together:
+
+  🧡 Online Art-Therapy — 35€/hour
+
+  We’ll gently explore your request, use MOСK cards, draw your current point A and create point B — with a clear and inspiring strategy to reach it.
+
+  🎨 Online Painting — 35€/hour
+
+  Just enjoy painting and colors, or learn something specific! Art school preparation, mastering techniques, or simply drawing for pleasure.
+
+  🍊 Offline Meetings — 40€/hour
+
+  Individual master class, art-therapy session, creating your personal path through colors, preparation for competitions or admission.
+  Warm communication and lots of inspiration!
+
+  Ready to begin? Send me a message @kseniialf
+PAINTINGS_TEXT: |
+  My works celebrate softness, femininity and emotional warmth — each canvas is an invitation to feel. 💗
+
+  Services I offer:
+  • Visualization of how a piece will look in your space 🏡
+  • Commissioned artworks made just for you ✨
+  • Collaborations with designers, galleries and brands 🌸
+
+  Worldwide shipping available 🌍 — installment options on request. For inquiries, DMs are open: @kseniialf 💌
+CONTACTS_TEXT: "I’m always happy to connect — tap any button below to reach me directly. Let’s make something beautiful together! 🤍"
+CONTACTS_BTN_TELEGRAM: "Telegram"
+CONTACTS_BTN_CHANNEL: "Telegram channel"
+CONTACTS_BTN_INSTAGRAM: "Instagram"
+CONTACTS_BTN_BEHANCE: "Behance"
+CONTACTS_BTN_EMAIL: "Email"
+GUIDE_GREET: |
+  Hello, beautiful! ❤️
+
+  So glad you're curious about color and yourself. This guide is a gentle companion for self‑discovery through art — small prompts, reflections and playful exercises to help you see and feel.
+GUIDE_TEXT: |
+  Hi, guide is unfortunately not yet translated to English:(
+LABEL_GUIDE: "Guide"
+LABEL_MAIN_MENU: "Main menu"
+UNKNOWN_COMMAND: "Sorry, I don't understand:("
+HELP_TEXT: |
+  Hi! 👋 I'm your friendly art assistant.
+
+  Helpful commands:
+  - /start — open the main menu
+  - /paintings — browse artworks
+  - /services — see offerings & prices
+  - /articles — read short guides and exercises
+  - /contacts — get in touch with the artist
+
+  Try the Art Style Quiz or open the Guide for a quick creative prompt! 🎨
+LANG_EN: "English 🇬🇧"
+LANG_RU: "Русский 🇷🇺"
+ARTICLES_MENU_GREETING: "Choose an article or take the quiz — let's discover your colors together! 🎨✨"
+

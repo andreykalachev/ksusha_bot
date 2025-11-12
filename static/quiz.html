@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Style Quiz</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            padding: 20px;
+            background-color: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #000000);
+            line-height: 1.6;
+        }
+        .container { max-width: 600px; margin: 0 auto; }
+        .progress {
+            margin: 20px 0;
+            height: 8px;
+            background: var(--tg-theme-secondary-bg-color, #f0f0f0);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--tg-theme-button-color, #0088cc);
+            transition: width 0.3s ease;
+            width: 0;
+        }
+        .question-container { margin: 30px 0; }
+        .question-header {
+            font-size: 14px;
+            color: var(--tg-theme-hint-color, #999);
+            margin-bottom: 10px;
+        }
+        .question-text {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--tg-theme-text-color, #000);
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            margin: 12px 0;
+            border: 2px solid var(--tg-theme-button-color, #0088cc);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--tg-theme-bg-color, #fff);
+        }
+        .option img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: #eee; /* Placeholder color */
+        }
+        .option:hover {
+            background-color: var(--tg-theme-button-color, #0088cc);
+            color: var(--tg-theme-button-text-color, white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .option.selected {
+            background-color: var(--tg-theme-button-color, #0088cc);
+            color: var(--tg-theme-button-text-color, white);
+            border-color: var(--tg-theme-button-color, #0088cc);
+        }
+        .navigation {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        button {
+            flex: 1;
+            padding: 16px;
+            background: var(--tg-theme-button-color, #0088cc);
+            color: var(--tg-theme-button-text-color, white);
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        button.secondary {
+            background: var(--tg-theme-secondary-bg-color, #f0f0f0);
+            color: var(--tg-theme-text-color, #000);
+        }
+        .hidden { display: none; }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--tg-theme-hint-color, #999);
+        }
+        /* Result View Styles */
+        .result-view { text-align: center; padding: 20px 0; }
+        .result-title { font-size: 24px; font-weight: bold; margin-bottom: 15px; color: var(--tg-theme-text-color, #000); }
+        .result-description { font-size: 16px; margin-bottom: 20px; color: var(--tg-theme-text-color, #000); }
+        .result-recommendations { 
+            background: var(--tg-theme-secondary-bg-color, #f0f0f0); 
+            padding: 15px; 
+            border-radius: 12px; 
+            margin-bottom: 30px; 
+            text-align: left; 
+        }
+        .result-recommendations h4 { margin-bottom: 10px; color: var(--tg-theme-hint-color, #999); font-size: 14px; text-transform: uppercase; }
+        
+        #closeBtn {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loading" id="loading">Loading Quiz...</div>
+        <div id="quizApp" class="hidden">
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="question-container" id="questionContainer"></div>
+            <div class="navigation">
+                <button id="prevBtn" class="secondary" onclick="prevQuestion()" style="display:none;"></button>
+                <button id="nextBtn" onclick="nextQuestion()" disabled></button>
+            </div>
+        </div>
+        
+        <!-- Result View -->
+        <div id="resultView" class="hidden result-view">
+            <div class="result-title" id="resultTitle"></div>
+            <div class="result-description" id="resultDescription"></div>
+            <div class="result-recommendations">
+                <h4 id="recommendationsLabel"></h4>
+                <div id="resultRecommendations"></div>
+            </div>
+            <button id="closeBtn" onclick="finishQuiz()"></button>
+        </div>
+    </div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        tg.ready();
+
+        // --- QUIZ DATA ---
+        const quizData = {
+            "ru": {
+                "questions": [
+                    {"name":"art_preference","text":"Что вас больше всего привлекает в искусстве?","options":[{"text":"Яркие, насыщенные цвета, придающие энергию","weights":[2,0,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q1_opt1.jpg"},{"text":"Мягкие, спокойные тона, которые успокаивают","weights":[0,2,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q1_opt2.jpg"},{"text":"Темные, драматичные контрасты","weights":[1,1,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q1_opt3.jpg"}]},
+                    {"name":"space_feeling","text":"Каким вы хотите видеть свое пространство?","options":[{"text":"Энергичным и вдохновляющим","weights":[2,0,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q2_opt1.jpg"},{"text":"Спокойным и медитативным","weights":[0,2,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q2_opt2.jpg"},{"text":"Изысканным и драматичным","weights":[0,0,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q2_opt3.jpg"}]},
+                    {"name":"art_style","text":"Какой художественный стиль вам ближе?","options":[{"text":"Абстрактный экспрессионизм - свободный и эмоциональный","weights":[2,1,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q3_opt1.jpg"},{"text":"Минимализм - простой и безмятежный","weights":[0,2,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q3_opt2.jpg"},{"text":"Современный реализм с глубиной","weights":[1,0,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q3_opt3.jpg"}]},
+                    {"name":"mood_preference","text":"Какое настроение вы ищете в произведениях искусства?","options":[{"text":"Радостное и возвышенное","weights":[2,1,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q4_opt1.jpg"},{"text":"Спокойное и созерцательное","weights":[0,2,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q4_opt2.jpg"},{"text":"Интенсивное и провокационное","weights":[1,0,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q4_opt3.jpg"}]},
+                    {"name":"size_preference","text":"Какой размер произведений вас привлекает?","options":[{"text":"Большие акцентные работы","weights":[2,0,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q5_opt1.jpg"},{"text":"Средние работы для баланса","weights":[1,2,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q5_opt2.jpg"},{"text":"Небольшие интимные работы","weights":[0,1,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q5_opt3.jpg"}]}
+                ],
+                "results": [
+                    {"title":"Энергичный Экспрессионист","description":"Вам нравятся смелые, яркие и эмоциональные произведения.","recommendations":"Ищите абстрактные картины с динамичными мазками и насыщенными цветами."},
+                    {"title":"Спокойный Минималист","description":"Вы цените простоту, гармонию и спокойствие.","recommendations":"Обратите внимание на минималистичные работы с чистыми линиями и сдержанной палитрой."},
+                    {"title":"Драматический Реалист","description":"Вас привлекает глубина, контраст и истории, рассказанные через искусство.","recommendations":"Исследуйте современный реализм, где свет и тень создают драматический эффект."}
+                ],
+                "ui": {
+                    "loading": "Загрузка квиза...",
+                    "question_header": "Вопрос",
+                    "of": "из",
+                    "next": "Далее →",
+                    "prev": "← Назад",
+                    "finish": "Показать результат"
+                }
+            },
+            "en": {
+                "questions": [
+                    {"name":"art_preference","text":"What appeals to you most in art?","options":[{"text":"Bright, vibrant colors that provide energy","weights":[2,0,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q1_opt1.jpg"},{"text":"Soft, calm tones that are soothing","weights":[0,2,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q1_opt2.jpg"},{"text":"Dark, dramatic contrasts","weights":[1,1,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q1_opt3.jpg"}]},
+                    {"name":"space_feeling","text":"How do you want your space to feel?","options":[{"text":"Energetic and inspiring","weights":[2,0,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q2_opt1.jpg"},{"text":"Calm and meditative","weights":[0,2,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q2_opt2.jpg"},{"text":"Sophisticated and dramatic","weights":[0,0,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q2_opt3.jpg"}]},
+                    {"name":"art_style","text":"Which art style is closer to you?","options":[{"text":"Abstract Expressionism - free and emotional","weights":[2,1,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q3_opt1.jpg"},{"text":"Minimalism - simple and serene","weights":[0,2,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q3_opt2.jpg"},{"text":"Modern Realism with depth","weights":[1,0,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q3_opt3.jpg"}]},
+                    {"name":"mood_preference","text":"What mood are you looking for in artworks?","options":[{"text":"Joyful and uplifting","weights":[2,1,0],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q4_opt1.jpg"},{"text":"Calm and contemplative","weights":[0,2,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q4_opt2.jpg"},{"text":"Intense and provocative","weights":[1,0,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q4_opt3.jpg"}]},
+                    {"name":"size_preference","text":"What size of artworks attracts you?","options":[{"text":"Large accent pieces","weights":[2,0,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q5_opt1.jpg"},{"text":"Medium works for balance","weights":[1,2,1],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q5_opt2.jpg"},{"text":"Small, intimate works","weights":[0,1,2],"image":"https://raw.githubusercontent.com/andreykalachev/ksusha-quiz-miniapp/refs/heads/main/static/images/q5_opt3.jpg"}]}
+                ],
+                "results": [
+                    {"title":"Energetic Expressionist","description":"You enjoy bold, vibrant, and emotional artworks.","recommendations":"Look for abstract paintings with dynamic strokes and rich colors."},
+                    {"title":"Calm Minimalist","description":"You appreciate simplicity, harmony, and tranquility.","recommendations":"Consider minimalist works with clean lines and a restrained palette."},
+                    {"title":"Dramatic Realist","description":"You are drawn to depth, contrast, and stories told through art.","recommendations":"Explore modern realism where light and shadow create a dramatic effect."}
+                ],
+                "ui": {
+                    "loading": "Loading Quiz...",
+                    "question_header": "Question",
+                    "of": "of",
+                    "next": "Next →",
+                    "prev": "← Back",
+                    "finish": "Show Result"
+                }
+            }
+        };
+
+        let currentQuestion = 0;
+        let answers = [];
+        let lang = 'en';
+        let T; // Translations object
+
+        function initializeQuiz() {
+            const urlParams = new URLSearchParams(window.location.search);
+            lang = urlParams.get('lang') === 'ru' ? 'ru' : 'en';
+            T = quizData[lang];
+
+            document.getElementById('loading').textContent = T.ui.loading;
+            document.getElementById('prevBtn').textContent = T.ui.prev;
+            document.getElementById('nextBtn').textContent = T.ui.next;
+            document.title = lang === 'ru' ? 'Квиз о стиле искусства' : 'Art Style Quiz';
+
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('quizApp').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = T.questions[currentQuestion];
+            const container = document.getElementById('questionContainer');
+            
+            container.innerHTML = `
+                <div class="question-header">
+                    ${T.ui.question_header} ${currentQuestion + 1} ${T.ui.of} ${T.questions.length}
+                </div>
+                <div class="question-text">${question.text}</div>
+                ${question.options.map((opt, idx) => `
+                    <div class="option ${answers[currentQuestion] === idx ? 'selected' : ''}" 
+                         onclick="selectOption(${idx})">
+                        ${opt.image ? `<img src="${opt.image}" alt="">` : ''}
+                        <span>${opt.text}</span>
+                    </div>
+                `).join('')}
+            `;
+
+            updateProgress();
+            updateButtons();
+        }
+
+        function selectOption(optionIdx) {
+            answers[currentQuestion] = optionIdx;
+            document.querySelectorAll('.option').forEach((el, idx) => {
+                el.classList.toggle('selected', idx === optionIdx);
+            });
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            
+            nextBtn.disabled = answers[currentQuestion] === undefined;
+            
+            if (currentQuestion === T.questions.length - 1) {
+                nextBtn.textContent = T.ui.finish;
+            } else {
+                nextBtn.textContent = T.ui.next;
+            }
+
+            prevBtn.style.display = currentQuestion > 0 ? 'block' : 'none';
+        }
+
+        function nextQuestion() {
+            if (answers[currentQuestion] === undefined) return;
+            if (currentQuestion < T.questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                // Hide navigation to prevent double click
+                document.querySelector('.navigation').style.display = 'none';
+                setTimeout(showResult, 100); // Ensure UI updates before showing result
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / T.questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function calculateResult() {
+            const weights = new Array(T.results.length).fill(0);
+            answers.forEach((optionIdx, questionIdx) => {
+                if (optionIdx === undefined || !T.questions[questionIdx]) return;
+                const option = T.questions[questionIdx].options[optionIdx];
+                if (!option) return;
+                option.weights.forEach((weight, i) => {
+                    weights[i] += weight;
+                });
+            });
+            const maxWeight = Math.max(...weights);
+            const resultIdx = weights.indexOf(maxWeight);
+            return T.results[resultIdx];
+        }
+
+        function showResult() {
+            const result = calculateResult();
+            if (!result) return;
+
+            // Hide quiz and show result
+            document.getElementById('quizApp').classList.add('hidden');
+            document.getElementById('resultView').classList.remove('hidden');
+            document.getElementById('resultView').style.display = 'block';
+
+            document.getElementById('resultTitle').textContent = result.title;
+            document.getElementById('resultDescription').textContent = result.description;
+
+            const recLabel = lang === 'ru' ? 'Наши рекомендации' : 'Our Recommendations';
+            document.getElementById('recommendationsLabel').textContent = recLabel;
+            document.getElementById('resultRecommendations').textContent = result.recommendations;
+
+            const closeLabel = lang === 'ru' ? 'Завершить' : 'Finish';
+            document.getElementById('closeBtn').textContent = closeLabel;
+        }
+
+        function finishQuiz() {
+            const result = calculateResult();
+            if (!result) return;
+            
+            const recommendationsLabel = lang === 'ru' ? 'Наши рекомендации' : 'Our Recommendations';
+            const resultText = `🎨 *${result.title}*\n\n${result.description}\n\n💡 *${recommendationsLabel}:*\n${result.recommendations}`;
+            
+            tg.sendData(resultText);
+            setTimeout(() => {
+                tg.close();
+            }, 100);
+        }
+
+        // Setup Telegram theme colors
+        document.body.style.setProperty('--tg-theme-bg-color', tg.themeParams.bg_color || '#ffffff');
+        document.body.style.setProperty('--tg-theme-text-color', tg.themeParams.text_color || '#000000');
+        document.body.style.setProperty('--tg-theme-button-color', tg.themeParams.button_color || '#0088cc');
+        document.body.style.setProperty('--tg-theme-button-text-color', tg.themeParams.button_text_color || '#ffffff');
+        document.body.style.setProperty('--tg-theme-secondary-bg-color', tg.themeParams.secondary_bg_color || '#f0f0f0');
+        document.body.style.setProperty('--tg-theme-hint-color', tg.themeParams.hint_color || '#999999');
+
+        initializeQuiz();
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Environment files
+.env
+.env.*
+
+# Editor and OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Python tooling
+.pytest_cache/
+.coverage
+coverage.xml
+
+# Logs
+*.log
+
+# Statistics data
+statistics/data/stats.json
+
+# Sensitive and documentation files
+README.md
+readme.txt
+ksusha_env.sh
+.env
+.env.*

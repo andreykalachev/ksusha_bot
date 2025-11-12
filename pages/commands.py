@@ -1,0 +1,69 @@
+from telegram import Update
+from telegram.ext import ContextTypes
+from pages.common import get_main_keyboard
+from pages.states import MENU
+from utils.logging_config import configure_logging
+from translation import translation_loader as tl
+from pages.contacts import contacts_command, show_contacts
+from pages.articles.menu import articles_command, show_articles_menu
+from pages.paintings import paintings_command, show_paintings
+from pages.services import services_command, show_services
+from utils import statistics
+
+logger = configure_logging()
+
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    user = update.effective_user
+    logger.info(
+        "Received /start from user id=%s, username=%s",
+        user.id if user else None,
+        getattr(user, 'username', None),
+    )
+
+    statistics.increment_bot_start()
+
+    keyboard = get_main_keyboard(context)
+    await update.message.reply_text(tl.load(tl.ABOUT_TEXT, context), reply_markup=keyboard)
+
+    return MENU
+
+
+async def unknown(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    logger.warning(
+        "Received unknown command from user: %s",
+        update.effective_user.id if update.effective_user else None,
+    )
+    await update.message.reply_text(tl.load(tl.UNKNOWN_COMMAND, context))
+
+
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_text(tl.load(tl.HELP_TEXT, context))
+
+
+async def contacts_wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.callback_query:
+        await show_contacts(update, context)
+    else:
+        await contacts_command(update, context)
+
+
+async def articles_wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.callback_query:
+        await show_articles_menu(update, context)
+    else:
+        await articles_command(update, context)
+
+
+async def paintings_wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.callback_query:
+        await show_paintings(update, context)
+    else:
+        await paintings_command(update, context)
+
+
+async def services_wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.callback_query:
+        await show_services(update, context)
+    else:
+        await services_command(update, context)

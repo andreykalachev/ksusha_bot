@@ -1,5 +1,6 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, WebAppInfo
 from telegram.ext import ContextTypes
+import os
 from translation import translation_loader as tl
 from .menu import ArticleCallback
 from pages import common
@@ -8,14 +9,14 @@ from utils import statistics
 from statistics.page_visits import Page
 
 
-GUIDE_TELEGRAM_FILE_ID = 'BQACAgIAAxkBAAICgGkbkrXX7wzvnSeNFsKz-tSeFGxWAALziAAC4YjYSBmKhRMNl2F0NgQ'
+GUIDE_TELEGRAM_FILE_ID = os.getenv("GUIDE_TELEGRAM_FILE_ID")
 
 
 async def show_guide(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     locale = common.get_locale(context)
-    web_app_url = f"https://andreykalachev.github.io/ksusha_bot/index.html?lang={locale}"
+    web_app_url = f"{os.getenv('WEB_APP_URL')}?lang={locale}"
 
     statistics.increment_page(Page.GUIDE)
 
@@ -27,9 +28,16 @@ async def show_guide(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton(tl.load(tl.LABEL_MAIN_MENU, context), callback_data=ArticleCallback.MAIN_MENU.value)],
     ]
 
-    await query.edit_message_text(message, reply_markup=InlineKeyboardMarkup(keyboard))
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
     if locale == Locale.EN.value:
+        await query.edit_message_text(message, reply_markup=reply_markup)
         return
 
-    await context.bot.send_document(chat_id=query.message.chat_id, document=GUIDE_TELEGRAM_FILE_ID)
+    await query.message.delete()
+    await context.bot.send_document(
+        chat_id=query.message.chat_id,
+        document=GUIDE_TELEGRAM_FILE_ID,
+        caption=message,
+        reply_markup=reply_markup
+    )

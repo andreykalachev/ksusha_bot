@@ -1,9 +1,16 @@
+# Business Entities
 ABOUT_TEXT: |
   Hello & welcome! ✨
 
   I'm Ksenia ALF — a third‑generation artist painting in a soft, abstract style. I create artworks that celebrate femininity, warmth and emotional color.
 
   This bot is your little creative studio: explore paintings, learn through short guides, try a playful art-style quiz and connect with me for commissions or sessions. Tap around and let's discover what colors say about you! 🎨💬
+INFO_TEXT: |
+  I'm Ksenia ALF — artist, art therapist and teacher. My journey in art is a journey to myself, to feelings and to the freedom of self-expression.
+  
+  Here you can learn more about me and download my portfolio (PDF).
+  
+  Want to know more? Just send me a message!
 SERVICES_TEXT: |
   I’m happy to see you here — welcome to a cozy space of creativity and color 🎨✨
 
@@ -40,30 +47,161 @@ GUIDE_GREET: |
 GUIDE_TEXT: |
   Hi, guide is unfortunately not yet translated to English:(
 ARTICLES_MENU_GREETING: "Choose an article or take the quiz — let's discover your colors together! 🎨✨"
+REVIEWS_TEXT: |
+  Here you can read reviews about my work on Profi.ru. Thank you to everyone who shares their impressions!
+MINI_SHOP_TEXT: |
+  Welcome to Ksusha's Mini-shop! Here you'll find unique mini-products made with love and inspiration.
+
+  To order, send a DM or reach out on Instagram. All items are available in limited quantities!
+
+  Below are examples of mini-products:
+INSPIRATION_INTRO: |
+  🧡 Your random inspiration for today:
+
+INSPIRATION_OUTRO: |
+  Let this color enter your reality a little: through an image, a mood, or a small drawing.
+  Don't forget about today's task! 
+  Kisses!😘
+CERTIFICATE_TEXT: "Use and enjoy! ✨"
+INSPIRATION_TEXT: |
+  WHERE TO FIND INSPIRATION?
+
+  In the life of any creator, artist (insert yours...) there comes a moment when it seems there is nowhere to go. All paths are explored, there are no ideas, and a creative crisis sets in.
+  Therefore, it was important for me to find such sources of inspiration, the creators of which will be able to surprise you with their vision, but most importantly -
+  return THAT bright desire to create and share new ideas with the world
+
+  follow the link to check the file!
+
 HELP_TEXT: |
   Hi! 👋 I'm your friendly art assistant.
 
-  Helpful commands:
+  Here are all available commands:
   - /start — open the main menu
-  - /paintings — browse artworks
-  - /services — see offerings & prices
-  - /articles — read short guides and exercises
-  - /contacts — get in touch with the artist
+  - /help — show help
+  - /portfolio — portfolio
+  - /services — services
+  - /products — free products
+  - /contacts — contacts
+  - /reviews — reviews
+  - /minishop — mini shop
+  - /info — about me
+  - /certificate — certificate
+  - /inspiration — inspiration
+  - /statistics — statistics
 
-  Try the Art Style Quiz or open the Guide for a quick creative prompt! 🎨
+  Use the menu buttons or commands above to navigate. If you have any questions — just ask!
+
+# Feature Labels
+LABEL_INFO: "🧑‍🎨 About me"
+LABEL_STATISTICS: "📊 Statistics"
 LABEL_SERVICES: "🧡 Services"
 LABEL_PAINTINGS: "🖼️ Portfolio"
 LABEL_ARTICLES: "📝 Free products"
 LABEL_CONTACTS: "📬 Contacts"
-LABEL_BACK: "🔙 Back"
+LABEL_REVIEWS: "⭐️ Reviews"
+LABEL_MINI_SHOP: "🛍️ Mini Shop"
+LABEL_CERTIFICATE: "🎁 Certificate"
+LABEL_REVIEWS_LINK: "Open reviews on Profi.ru"
 LABEL_QUIZ: "🎨 Quiz: The Color That Leads You"
-LABEL_GUIDE: "Guide"
-LABEL_MAIN_MENU: "Main menu"
+LABEL_GUIDE: "Guide: Psychology of Color"
+LABEL_ARTIST_DAY: "Youtube: Artist's Day"
+LABEL_INSPIRATION: "Where to find inspiration?"
+LABEL_INSPIRATION_LINK: "Article"
+LABEL_INSPIRATION_GENERATOR: "✨ Inspiration for today"
+LABEL_INSPIRATION_NEW: "🔄 Generate New"
 CONTACTS_BTN_TELEGRAM: "Telegram"
 CONTACTS_BTN_CHANNEL: "Telegram channel"
 CONTACTS_BTN_INSTAGRAM: "Instagram"
 CONTACTS_BTN_BEHANCE: "Behance"
 CONTACTS_BTN_EMAIL: "Email"
+
+# Navigation & System
+LABEL_BACK: "🔙 Back"
+LABEL_MAIN_MENU: "Main menu"
 UNKNOWN_COMMAND: "Sorry, I don't understand:("
 LANG_EN: "English 🇬🇧"
-LANG_RU: "Русский 🇷🇺"
+LANG_RU: "Русский 🇷��"
+
+# Inspiration Cards
+INSPIRATION_CARDS:
+  - color: "Deep Red"
+    quote: "«If you feel the fire — let it illuminate, not burn.»"
+    exercise: "Draw your inner fire today using only lines and spots. Don't think about the form - let your hand move to the beat of your feelings."
+  - color: "Scarlet Red"
+    quote: "«Passion is a fire that asks no permission to burn.»"
+    exercise: "Choose one small act you've been putting off and do it. Afterward, sketch the moment you feel relief or joy."
+  - color: "Ruby Red"
+    quote: "«Courage begins where familiar answers end.»"
+    exercise: "Draw a symbol of your courage. It can be a sign, an object, or an abstract form. Introduce red as an accent in the drawing."
+  - color: "Warm Orange"
+    quote: "«You don't have to do everything seriously for it to be important.»"
+    exercise: "Draw any little thing from your home today as if it were a fairy tale character. Give it a mood, character, and orange accents."
+  - color: "Peach Orange"
+    quote: "«Joy often lives in the simplest moments.»"
+    exercise: "Recall three little things that made you feel good today. Sketch them as three spots or mini-illustrations."
+  - color: "Amber Orange"
+    quote: "«Your warmth is a resource, not a weakness.»"
+    exercise: "Draw a place where you feel truly cozy. Add warm shades to it - as if you are flooding this space with soft light."
+  - color: "Soft Yellow"
+    quote: "«Clarity begins with a simple question to yourself: „How do I really feel?»"
+    exercise: "Write one sentence about what you want right now. Then turn this sentence into an abstract drawing of yellow lines and shapes."
+  - color: "Lemon Yellow"
+    quote: "«Your thoughts deserve to be heard - at least by yourself.»"
+    exercise: "Take a sheet and make a «thought sketch» - write and draw everything that comes to mind for 3 minutes straight, without stopping."
+  - color: "Golden Yellow"
+    quote: "«What is truly valuable is often closer than it seems — you just need to stop and feel this moment.»"
+    exercise: "Draw something today that you are grateful for. It doesn't have to be literal - it can be a symbol or a metaphor."
+  - color: "Emerald Green"
+    quote: "«Growth is not always visible, but it is always happening.»"
+    exercise: "Draw a sprout, a tree, or any form that symbolizes growth for you. Add shades of green that you like."
+  - color: "Soft Mint Green"
+    quote: "«Your freedom grows with you: today you can breathe deeper than you allowed yourself yesterday.»"
+    exercise: "Take a few deep breaths, and then sketch the air - as you feel it, with lines, spots, waves."
+  - color: "Olive Green"
+    quote: "«Peace is also an action, only turned inward.»"
+    exercise: "Draw a place where you can rest inside yourself. It can be a real corner or a fantasy garden."
+  - color: "Deep Blue"
+    quote: "«Answers come in silence, not in haste.»"
+    exercise: "Set aside 3–5 minutes of silence. Then sketch one thought or image that came during this pause, using blue shades."
+  - color: "Indigo"
+    quote: "«Your depth is a space of power, light, and true value.»"
+    exercise: "Draw a symbol of your depth: it can be an ocean, an eye, a window, a tunnel - whatever resonates."
+  - color: "Sky Blue"
+    quote: "«When you allow yourself to be honest, the air around becomes lighter.»"
+    exercise: "Write one honest confession to yourself, and then frame it with a soft blue background or pattern."
+  - color: "Lavender Purple"
+    quote: "«Imagination is a place where the world becomes what you boldly allow it to be.»"
+    exercise: "Draw something unreal today: an object that cannot exist in reality but lives in your head."
+  - color: "Deep Purple"
+    quote: "«Transitions are not loss, but transformation.»"
+    exercise: "Choose one theme you are currently living through as a transition. Draw it as a bridge, a portal, or a door."
+  - color: "Amethyst Purple"
+    quote: "«Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring. Marilyn Monroe»"
+    exercise: "Draw a pattern of repeating shapes that you associate with your uniqueness. Add purple accents to them."
+  - color: "Warm Brown"
+    quote: "«Home is not a place, it's a feeling.»"
+    exercise: "Draw your «home» - not necessarily walls, rather a feeling of support. Use warm earthy shades."
+  - color: "Coffee Brown"
+    quote: "«Your little rituals support you stronger than you think.»"
+    exercise: "Invent and draw your daily ritual as a comic of 3–4 frames. You can draw figuratively or schematically, the main thing is to convey the mood."
+  - color: "Walnut Brown"
+    quote: "«What lies behind us and what lies before us are tiny matters compared to what lies within us.»"
+    exercise: "Draw an object/image/sensation that still gives you support. Even if it doesn't exist physically - depict it as you feel it."
+  - color: "Soft White"
+    quote: "«Sometimes the best action is to remove the excess.»"
+    exercise: "Choose one corner in the room and simplify it: mentally or on paper. Draw this space before and after clearing."
+  - color: "Cool White"
+    quote: "«A pause is also part of the movement.»"
+    exercise: "Draw an empty space and add only one object to it that is important to you right now. Notice how much air is around it."
+  - color: "Creamy White"
+    quote: "«You have the right to make everything simpler than you are used to.»"
+    exercise: "Try to draw something today with one or two colors, without unnecessary details. Let yourself try «minimalism» in drawing."
+  - color: "Deep Black"
+    quote: "«Your shadow is part of your strength.»"
+    exercise: "Draw your shadow (shadow side) as a character. What does it look like? What pose does it take? What lines reach out to it?"
+  - color: "Glossy Black"
+    quote: "«When you look inside, the world outside begins to change.»"
+    exercise: "Draw a reflection of your inner world as if looking into water: who you are now, seen by everyone, and who you are in the reflection of depth."
+  - color: "Graphite Black"
+    quote: "«You always have the right to start with a draft.»"
+    exercise: "Make a «messy» sketch of anything, without trying. Just let your hand move. Then see what you like about it."

@@ -1,5 +1,6 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
+import os
 from pages import common
 from translation import translation_loader as tl
 from utils import statistics
@@ -7,7 +8,7 @@ from statistics.page_visits import Page
 from typing import Tuple
 
 
-BEHANCE_URL = "https://www.behance.net/kseniialf"
+BEHANCE_URL = os.getenv("BEHANCE_URL")
 
 
 def _build_paintings_payload(context: ContextTypes.DEFAULT_TYPE) -> Tuple[str, InlineKeyboardMarkup]:

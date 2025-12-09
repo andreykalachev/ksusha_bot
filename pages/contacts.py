@@ -1,17 +1,18 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
+import os
 from pages import common
 from translation import translation_loader as tl
 from translation.languages import Locale
 from utils import statistics
 from statistics.page_visits import Page
 
-TG_URL = "https://t.me/kseniialf"
-TG_CHANNEL_URL = "https://t.me/kseniialfs"
-INSTAGRAM_RU = "https://www.instagram.com/kseniialf"
-INSTAGRAM_EN = "https://www.instagram.com/kseniialf.art"
-BEHANCE_URL = "https://www.behance.net/kseniialf"
-EMAIL_COMPOSE_URL = "https://mail.google.com/mail/?view=cm&fs=1&to=kseniiaalferova@gmail.com"
+TG_URL = os.getenv("TG_URL")
+TG_CHANNEL_URL = os.getenv("TG_CHANNEL_URL")
+INSTAGRAM_RU = os.getenv("INSTAGRAM_RU")
+INSTAGRAM_EN = os.getenv("INSTAGRAM_EN")
+BEHANCE_URL = os.getenv("BEHANCE_URL")
+EMAIL_COMPOSE_URL = os.getenv("EMAIL_COMPOSE_URL")
 
 
 def _build_contacts_payload(context: ContextTypes.DEFAULT_TYPE):

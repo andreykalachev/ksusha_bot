@@ -23,6 +23,10 @@ This is a Telegram bot built with `python-telegram-bot` (v20+ async) for an art-
 
 ### Translations
 - **Never hardcode text**. Add keys to `translation/translations.{lang}.yaml` and constants to `translation/translation_loader.py`.
+- **Structure**: Keep translation files organized in the following order:
+  1. **Business Entities** (Long texts, descriptions, messages)
+  2. **Feature Labels** (Button labels, short titles)
+  3. **Navigation & System** (Back buttons, common commands, language names)
 - Usage: `text = tl.load(tl.SOME_KEY, context)`
 - Locale is stored in `context.user_data[LOCALE]`.
 
@@ -55,3 +59,8 @@ screen -S ksusha -dm bash -lc "source ksusha_env.sh && venv/bin/python bot.py"
 ## Common Pitfalls
 - **"Message is not modified"**: If a handler rebuilds the same menu without checking `query.data`, `edit_message_text` will raise `BadRequest`. Ensure logic handles specific actions (like navigation) before falling back to "refreshing" the view.
 - **Circular Imports**: `pages/` modules often reference each other. Use local imports inside functions if necessary to avoid cycles.
+
+## Additional AI Coding Rules
+
+- **Minimize comments**: Add comments only for critical logic or non-obvious code. Avoid excessive or obvious comments.
+- **Avoid try/except**: Do not use try/except unless error handling is absolutely necessary for user experience or data integrity.

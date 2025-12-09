@@ -1,0 +1,246 @@
+main_page:
+  title: "The Color That Guides You"
+  description: |
+    Welcome!
+
+    This quiz is based on color psychology and archetype work.
+    By choosing images, states, and symbols, you gradually reveal your color, which most accurately reflects your emotional dynamic and what you need right now.
+
+    Pass 7 questions and find out which color archetype is yours.
+  image: "MainPage.en.jpg"
+  button: "Start"
+
+questions:
+  - id: 1
+    text: "Which landscape is closer to you?"
+    answers:
+      - text: "Bright flowers in the mountains"
+        image: "1_1.jpeg"
+        weights: {P1: 4, P2: 3, P3: 3, P4: 3, P5: 2, P6: 3, P7: 1, P8: 3, P9: 0}
+      - text: "Dark enchanting forest"
+        image: "1_2.jpeg"
+        weights: {P1: 1, P2: 1, P3: 0, P4: 2, P5: 2, P6: 1, P7: 4, P8: 0, P9: 4}
+      - text: "Storm in the field"
+        image: "1_3.jpeg"
+        weights: {P1: 2, P2: 0, P3: 0, P4: 1, P5: 3, P6: 3, P7: 2, P8: 1, P9: 3}
+      - text: "Calm sea"
+        image: "1_4.jpeg"
+        weights: {P1: 0, P2: 1, P3: 1, P4: 2, P5: 3, P6: 3, P7: 2, P8: 2, P9: 0}
+
+  - id: 2
+    text: "If you could create your own world, what would be its mood?"
+    answers:
+      - text: "Airy, light"
+        image: "2_1.jpeg"
+        weights: {P1: 0, P2: 2, P3: 2, P4: 3, P5: 1, P6: 2, P7: 2, P8: 4, P9: 0}
+      - text: "Expressive, unbridled"
+        image: "2_2.jpeg"
+        weights: {P1: 4, P2: 3, P3: 4, P4: 3, P5: 3, P6: 3, P7: 1, P8: 1, P9: 3}
+      - text: "Warm, cozy"
+        image: "2_3.jpeg"
+        weights: {P1: 3, P2: 3, P3: 3, P4: 1, P5: 0, P6: 0, P7: 3, P8: 1, P9: 0}
+      - text: "Saturated, dense"
+        image: "2_4.jpeg"
+        weights: {P1: 1, P2: 0, P3: 1, P4: 2, P5: 3, P6: 3, P7: 1, P8: 1, P9: 4}
+
+  - id: 3
+    text: "What time of day do you feel is most 'yours'?"
+    answers:
+      - text: "Dawn - beginning, silence, awakening"
+        image: "3_1.jpeg"
+        weights: {P1: 1, P2: 2, P3: 2, P4: 0, P5: 0, P6: 1, P7: 1, P8: 4, P9: 0}
+      - text: "Noon - maximum energy and clarity"
+        image: "3_2.jpeg"
+        weights: {P1: 4, P2: 3, P3: 2, P4: 3, P5: 2, P6: 2, P7: 2, P8: 1, P9: 1}
+      - text: "Sunset - depth, reflection, emotions"
+        image: "3_3.jpeg"
+        weights: {P1: 2, P2: 2, P3: 1, P4: 3, P5: 2, P6: 2, P7: 3, P8: 2, P9: 2}
+      - text: "Night - mystery, intuition, inner strength"
+        image: "3_4.jpeg"
+        weights: {P1: 1, P2: 1, P3: 1, P4: 2, P5: 3, P6: 2, P7: 2, P8: 2, P9: 4}
+
+  - id: 4
+    text: "When you hear the word 'movement', what comes to mind first?"
+    answers:
+      - text: "Smooth, slow flow"
+        image: "4_1.jpg"
+        weights: {P1: 0, P2: 1, P3: 1, P4: 3, P5: 2, P6: 2, P7: 1, P8: 1, P9: 2}
+      - text: "Dash forward, flash"
+        image: "4_2.jpg"
+        weights: {P1: 4, P2: 3, P3: 3, P4: 1, P5: 2, P6: 2, P7: 1, P8: 3, P9: 1}
+      - text: "Circular, repetitive movement"
+        image: "4_3.jpg"
+        weights: {P1: 2, P2: 3, P3: 3, P4: 2, P5: 2, P6: 2, P7: 2, P8: 2, P9: 1}
+      - text: "Wind changing direction"
+        image: "4_4.jpg"
+        weights: {P1: 3, P2: 3, P3: 1, P4: 1, P5: 0, P6: 1, P7: 1, P8: 4, P9: 3}
+
+  - id: 5
+    text: "Which emotion resonates with you the most right now?"
+    answers:
+      - text: "Calmness"
+        image: "5_1.jpg"
+        weights: {P1: 0, P2: 1, P3: 2, P4: 4, P5: 3, P6: 2, P7: 4, P8: 3, P9: 3}
+      - text: "Passion"
+        image: "5_2.jpg"
+        weights: {P1: 4, P2: 3, P3: 2, P4: 1, P5: 2, P6: 2, P7: 0, P8: 0, P9: 0}
+      - text: "Curiosity"
+        image: "5_3.jpg"
+        weights: {P1: 2, P2: 4, P3: 3, P4: 2, P5: 2, P6: 0, P7: 0, P8: 3, P9: 0}
+      - text: "Strength"
+        image: "5_4.jpg"
+        weights: {P1: 4, P2: 2, P3: 2, P4: 1, P5: 3, P6: 3, P7: 4, P8: 0, P9: 4}
+
+  - id: 6
+    text: "Which of these images evokes the most internal response in you?"
+    answers:
+      - text: "Warm candlelight"
+        image: "6_1.jpg"
+        weights: {P1: 3, P2: 3, P3: 4, P4: 1, P5: 0, P6: 1, P7: 3, P8: 1, P9: 0}
+      - text: "Cold metal reflections"
+        image: "6_2.jpg"
+        weights: {P1: 0, P2: 0, P3: 2, P4: 1, P5: 3, P6: 3, P7: 0, P8: 4, P9: 4}
+      - text: "Wood texture in shadow"
+        image: "6_3.jpg"
+        weights: {P1: 1, P2: 1, P3: 0, P4: 3, P5: 2, P6: 1, P7: 4, P8: 0, P9: 4}
+      - text: "Soft glow of clouds"
+        image: "6_4.jpg"
+        weights: {P1: 0, P2: 2, P3: 3, P4: 2, P5: 3, P6: 3, P7: 0, P8: 3, P9: 0}
+
+  - id: 7
+    text: "Imagine you need to leave only one item in the room. What will it be?"
+    answers:
+      - text: "Painting or photograph"
+        image: "7_1.jpg"
+        weights: {P1: 3, P2: 3, P3: 3, P4: 1, P5: 2, P6: 3, P7: 1, P8: 2, P9: 2}
+      - text: "Candle or lamp"
+        image: "7_2.jpg"
+        weights: {P1: 3, P2: 3, P3: 4, P4: 1, P5: 0, P6: 1, P7: 3, P8: 2, P9: 0}
+      - text: "Plant"
+        image: "7_3.jpg"
+        weights: {P1: 0, P2: 1, P3: 1, P4: 4, P5: 2, P6: 1, P7: 3, P8: 3, P9: 0}
+      - text: "Stone, book, artifact"
+        image: "7_4.jpg"
+        weights: {P1: 1, P2: 0, P3: 2, P4: 1, P5: 3, P6: 3, P7: 4, P8: 0, P9: 4}
+
+results:
+  - id: P1
+    title: "Red - Archetype of Fire"
+    short_summary: "A fiery spark leaving a trail of warmth and light in its path."
+    description: |
+      Strength, passion, and natural courage live in you. You feel life through the desire to live everything brightly and truly.
+      Your presence is impossible not to notice: you ignite a fire in others, even if you don't notice it yourself.
+      
+      <u><b>What you need right now:</b></u>
+      Return energy to yourself through action. Move. Make choices. Do not suppress the fire, but direct it.
+    image: "Р1_Красный.jpg"
+    color: "#8B0000"
+    color_dark: "#FF6B6B"
+
+  - id: P2
+    title: "Orange - Archetype of Creative Spark"
+    short_summary: "A spark of creativity that illuminates everything around with a soft light of inspiration."
+    description: |
+      You see the world as a space of possibilities and pleasure. You have an inner spark that lifts the mood of others and creates a feeling of lightness. You know how to turn the ordinary into the extraordinary, weekdays into a holiday.
+      
+      <u><b>What you need right now:</b></u>
+      Play openly, try new things, don't pressure yourself. It is important for you to feel pleasure and freedom of expression.
+    image: "Р2_Оранжевый.jpg"
+    color: "#CC5500"
+    color_dark: "#FFB347"
+
+  - id: P3
+    title: "Yellow - Archetype of Light of Reason"
+    short_summary: "A ray of dawn dispelling the shadow of doubt."
+    description: |
+      You know how to disperse the fog around yourself and others. You seek the truth - and find it where others pass by. You shine softly but confidently, creating a sense of order and calm.
+      
+      <u><b>What you need right now:</b></u>
+      Simplify the space, clarify thoughts, hear your inner "yes". You need to free your mind so it can shine again.
+    image: "Р3_Желтый.jpg"
+    color: "#B8860B"
+    color_dark: "#FFD700"
+
+  - id: P4
+    title: "Green - Archetype of Harmony and Life"
+    short_summary: "A quiet leaf in the morning light, a symbol of growth and balance."
+    description: |
+      You have the ability to heal the space around simply by your presence. You create a sense of peace and stability, even when there is a storm inside. You are drawn to growth, to soft renewal, naturalness.
+      
+      <u><b>What you need right now:</b></u>
+      Respite. Acceptance. Tenderness to yourself. Return to your rhythms and stop rushing.
+    image: "Р4_Зеленый.jpg"
+    color: "#006400"
+    color_dark: "#90EE90"
+
+  - id: P5
+    title: "Blue - Archetype of Depth and Intuition"
+    short_summary: "Deep water reflecting the sky and the secrets of the world."
+    description: |
+      You perceive the world through observations and feelings that cannot always be explained in words. Wisdom lives in you, and it manifests itself in your calmness.
+      You know how to see what is hidden and feel what others are silent about.
+      
+      <u><b>What you need right now:</b></u>
+      Silence. Space. Be alone as much as required to hear yourself and regain clarity.
+    image: "Р5_Синий.jpg"
+    color: "#00008B"
+    color_dark: "#87CEEB"
+
+  - id: P6
+    title: "Purple - Archetype of Magic and Transformation"
+    short_summary: "The misty glow of twilight where visions are born."
+    description: |
+      You do not live in a straight line - your path is spiral, with inner insights. You have the ability to see more than is given on the surface: meanings, coincidences, directions. You are the creator of a new world within yourself.
+      
+      <u><b>What you need right now:</b></u>
+      Trust your feelings and give yourself time to rebuild. Your transformation is already beginning - do not hold on to the old.
+    image: "Р6_Фиолетовый.jpg"
+    color: "#4B0082"
+    color_dark: "#BA55D3"
+
+  - id: P7
+    title: "Brown - Archetype of Earth and Rootedness"
+    short_summary: "Warm earth underfoot, giving a feeling of home."
+    description: |
+      Your calmness is your superpower. You know how to be a support and create order where there is chaos. You value quality, stability, and the present, not illusions.
+      
+      <u><b>What you need right now:</b></u>
+      Return a sense of support to yourself: home, rituals, body, order. Ground yourself to feel strength.
+    image: "Р7_Коричневый.jpg"
+    color: "#8B4513"
+    color_dark: "#DEB887"
+
+  - id: P8
+    title: "White - Archetype of Emptiness and Potential"
+    short_summary: "Thin haze of dawn, promise of a new path."
+    description: |
+      You are the beginning. A space where everything is possible. You carry lightness and renewal. You know how to let go of the old before it becomes heavy. You come into the lives of others like a deep breath.
+      
+      <u><b>What you need right now:</b></u>
+      Clear the space - external and internal. Free yourself from the unnecessary so that the new can enter your life.
+    image: "Р8_Белый.jpg"
+    color: "#000000"
+    color_dark: "#FFFFFF"
+
+  - id: P9
+    title: "Black - Archetype of Night and Protection"
+    short_summary: "Dense night keeping secrets and strength within itself."
+    description: |
+      You are not afraid of dark zones, you know how to see in the shadow what others turn away from. You are the energy of boundaries, maturity, inner core. You transform pain into strength, and loneliness into wisdom.
+      
+      <u><b>What you need right now:</b></u>
+      Create boundaries. Remove the unnecessary. Protect the inner light.
+    image: "Р9_Черный.jpg"
+    color: "#000000"
+    color_dark: "#F0F0F0"
+
+final_words: |
+  I am very glad that you are interested in both color and yourself. Ahead is only the most interesting and mysterious. After all, self-knowledge is an eternal process!
+
+  To get closer to yourself - I have provided you with another tool - GUIDE TO COLOR PSYCHOLOGY which you can find in the bot.
+
+  In the file you will find:
+  - a list of primary colors and a brief summary of their meaning
+  - articles on each color, with their characteristics, as well as - the effect of color on a person, quotes from the greats, and information on how to use the chosen color in a blog and who it suits
+  - final words and parting words
+close_button: "Close"

@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from pages.common import get_main_keyboard
-from pages.states import MENU
+
 from utils.logging_config import configure_logging
 from translation import translation_loader as tl
 from pages.contacts import contacts_command, show_contacts
@@ -13,7 +13,7 @@ from utils import statistics
 logger = configure_logging()
 
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user = update.effective_user
     logger.info(
         "Received /start from user id=%s, username=%s",
@@ -25,8 +25,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     keyboard = get_main_keyboard(context)
     await update.message.reply_text(tl.load(tl.ABOUT_TEXT, context), reply_markup=keyboard)
-
-    return MENU
 
 
 async def unknown(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:

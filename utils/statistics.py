@@ -56,14 +56,11 @@ def format_model(model: StatisticsModel) -> str:
 
     lines = [
         "Statistics:",
-        f"- Bot starts: {model.bot_starts}",
-        "- Page visits:",
-        f"  • Main: {pv.main}",
-        f"  • Guide: {pv.guide}",
-        f"  • Quiz: {pv.quiz}",
-        f"  • Contacts: {pv.contacts}",
-        f"  • Paintings: {pv.paintings}",
-        f"  • Services: {pv.services}",
+        f"• Main: {pv.main}",
+        f"• Guide: {pv.guide}",
+        f"• Contacts: {pv.contacts}",
+        f"• Paintings: {pv.paintings}",
+        f"• Services: {pv.services}",
         f"- Last reset: {last_reset}",
     ]
     return "\n".join(lines)

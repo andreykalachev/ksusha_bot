@@ -59,14 +59,21 @@
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="container">
-                <h1 class="fade-in" data-i18n="hero_title">Пространство<br>творчества и цвета</h1>
-                <p class="subtitle fade-in delay-1" data-i18n="hero_subtitle">Абстрактная живопись • Арт-терапия • Обучение</p>
-                <div class="hero-buttons fade-in delay-2">
-                    <div class="hero-btn-group">
-                        <a href="paintings.html" class="btn btn-primary" data-i18n="hero_btn_gallery">Смотреть работы</a>
-                        <a href="#services" class="btn btn-outline" data-i18n="hero_btn_prices">Цены</a>
+                <div class="hero-content-wrapper">
+                    <div class="hero-image-container">
+                        <img src="assets/main_page.jpg" alt="Kseniia ALF" class="hero-main-image">
                     </div>
-                    <a href="quiz.html" class="btn btn-text-quiz" data-i18n="hero_btn_quiz">Квиз: Цвет, который ведет тебя</a>
+                    <div class="hero-text-content">
+                        <h1 class="fade-in" data-i18n="hero_title">Пространство<br>творчества и цвета</h1>
+                        <p class="subtitle fade-in delay-1" data-i18n="hero_subtitle">Абстрактная живопись • Арт-терапия • Обучение</p>
+                        <div class="hero-buttons fade-in delay-2">
+                            <div class="hero-btn-group">
+                                <a href="paintings.html" class="btn btn-outline" data-i18n="hero_btn_gallery">Смотреть работы</a>
+                                <a href="#services" class="btn btn-outline" data-i18n="hero_btn_prices">Стоимость услуг</a>
+                            </div>
+                            <a href="quiz.html" class="btn btn-outline" data-i18n="hero_btn_quiz">Квиз: Цвет, который ведет тебя</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="hero-background">
@@ -90,10 +97,62 @@
             </div>
         </section>
 
-        <!-- Gallery Preview -->
-        <section id="gallery" class="section bg-light">
+        <!-- Artist Statement & CV Section -->
+        <section id="artist-statement" class="section bg-light">
             <div class="container">
-                <h2 data-i18n="gallery_title">Мои картины</h2>
+                <h2 data-i18n="statement_title">Творческое заявление</h2>
+                <div class="statement-content">
+                    <p data-i18n="statement_text_1">Мое искусство - в первую очередь о человеке. О человеке, прошедшем через непростые этапы, но сумевшем сохранить внутреннюю свободу. Это история девушки, которая, несмотря ни на что, продолжала верить в любовь и стремиться быть любимой.</p>
+                    <p data-i18n="statement_text_2">Мои работы затрагивают личные и яркие темы: любовь, сексуальность, принятие, чувственность, женственность. Это темы, о которых много говорят, но в которые редко действительно погружаются. Через свои картины я стремлюсь к такому погружению - искреннему, честному, уязвимому.</p>
+                    <p data-i18n="statement_text_3">Главные инструменты моего самовыражения - линия и цвет. Именно они несут в себе сокровенный смысл каждой работы. Я изучаю психологию цвета и намеренно закладываю в картины эмоциональные коды, чтобы зритель мог почувствовать их глубже и тем самым прикоснуться к моему внутреннему миру.</p>
+                </div>
+
+                <h2 data-i18n="cv_title" style="margin-top: 60px;">Резюме</h2>
+                <div class="cv-grid">
+                    <div class="cv-column">
+                        <h3 data-i18n="cv_education_title">Образование</h3>
+                        <div class="cv-item">
+                            <span class="cv-year">2023 – 2026</span>
+                            <p data-i18n="cv_edu_1">Магистратура по архитектуре (Генуя, Италия)<br>Государственный университет Генуи</p>
+                        </div>
+                        <div class="cv-item">
+                            <span class="cv-year">2025</span>
+                            <p data-i18n="cv_edu_2">Программа обмена Erasmus+ по архитектуре (Порту, Португалия)<br>Университет Фернандо Пессоа</p>
+                        </div>
+                        <div class="cv-item">
+                            <span class="cv-year">2017 – 2021</span>
+                            <p data-i18n="cv_edu_3">Бакалавриат "Интерьер и Оборудование" (Санкт-Петербург, Россия)<br>Санкт-Петербургская государственная художественно-промышленная академия имени А. Л. Штиглица</p>
+                        </div>
+
+                        <h3 data-i18n="cv_exhibitions_title" style="margin-top: 40px;">Персональные выставки</h3>
+                        <ul class="cv-list">
+                            <li>2023. <span data-i18n="cv_exh_1">Персональная выставка “(НЕ) ВСЕРЬЕЗ” в ДМ “Пулковец”. г. Санкт-Петербург.</span></li>
+                            <li>2024. <span data-i18n="cv_exh_2">Персональная выставка в кафе-галерее “Casimir”. г. Санкт-Петербург.</span></li>
+                        </ul>
+                    </div>
+                    <div class="cv-column">
+                        <h3 data-i18n="cv_events_title">Важные события</h3>
+                        <ul class="cv-list">
+                            <li data-i18n="cv_event_1">2010. Участие в выставке «Мой мир» в Институте Гуманитарного образования, г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_2">2012. Выставка в Эрмитаже. “Мартовский Кот”. г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_3">2013. Районный этап городской акции «Блокадная ласточка». Диплом первой степени. г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_4">2018. Участник благотворительной акции «Моя любовь, футбол и кот», приуроченной к 22-му чемпионату по футболу FIFA. г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_5">2019. Участник реалити-шоу «Модный Интерио-Хаус». г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_6">2021. Участник выставки “Зооарт” в Музее скульптуры. г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_7">2021. Выставка в Союзе художников России «Молодость Петербурга». г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_8">2021. Спикер на пресс-конференции ИТАР ТАС на тему современного искусства и анималистики в живописи. г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_9">2021. Выставка «Конкурс дипломных работ СПГХПА имени А.Л. Штиглица». Третье место в номинации «Лучший проект интерьеров». г. Санкт-Петербург.</li>
+                            <li data-i18n="cv_event_10">2022. Диплом первой степени за дизайн проекта Академии театрального мастерства. г. Санкт-Петербург.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2 data-i18n="gallery_title">Каталог</h2>
                 
                 <div class="carousel-container">
                     <button class="carousel-btn prev" aria-label="Previous">&lt;</button>
@@ -114,27 +173,33 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="section">
+        <section id="services" class="section bg-light">
             <div class="container">
                 <h2 data-i18n="services_title">Поработать со мной</h2>
                 <div class="services-grid">
                     <div class="service-card">
-                        <h3 data-i18n="service_1_title">Арт-терапия</h3>
-                        <p class="price" data-i18n="service_1_price">35€ / час</p>
-                        <p data-i18n="service_1_desc">Онлайн сессия с использованием МАК карт. Поиск пути из точки А в точку Б.</p>
-                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_1_btn">Записаться</a>
+                        <h3 data-i18n="service_online_paint_title">Онлайн рисование</h3>
+                        <p class="price" data-i18n="service_online_paint_price">20€ / час</p>
+                        <p data-i18n="service_online_paint_desc">Просто наслаждайся цветом и процессом или учись чему-то конкретному! Подготовка к художественной школе, освоение техник или рисование «для души».</p>
+                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_btn">Записаться</a>
                     </div>
                     <div class="service-card">
-                        <h3 data-i18n="service_2_title">Онлайн рисование</h3>
-                        <p class="price" data-i18n="service_2_price">35€ / час</p>
-                        <p data-i18n="service_2_desc">Техники рисования, подготовка к художественной школе или рисование "для души".</p>
-                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_2_btn">Записаться</a>
+                        <h3 data-i18n="service_art_therapy_title">Онлайн арт-терапия</h3>
+                        <p class="price" data-i18n="service_art_therapy_price">30€ / час</p>
+                        <p data-i18n="service_art_therapy_desc">Мягко и бережно разберём твой запрос, а далее, используя МАК-карты и психологию цвета, нарисуем точку «А» и создадим точку «Б» - с вдохновляющим путём, как к ней прийти.</p>
+                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_btn">Записаться</a>
                     </div>
                     <div class="service-card">
-                        <h3 data-i18n="service_3_title">Оффлайн встречи</h3>
-                        <p class="price" data-i18n="service_3_price">40€ / час</p>
-                        <p data-i18n="service_3_desc">Мастер-классы и личный творческий путь. Живое общение и творчество.</p>
-                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_3_btn">Записаться</a>
+                        <h3 data-i18n="service_offline_ind_title">Оффлайн-встречи индивидуально</h3>
+                        <p class="price" data-i18n="service_offline_ind_price">40€ / час</p>
+                        <p data-i18n="service_offline_ind_desc">Здесь возможно все - создание личного творческого пути, консультация, помощь в подготовке к конкурсам или поступлению!</p>
+                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_btn">Записаться</a>
+                    </div>
+                    <div class="service-card">
+                        <h3 data-i18n="service_offline_group_title">Оффлайн-встречи групповые</h3>
+                        <p class="price" data-i18n="service_offline_group_price">20€ / час с человека</p>
+                        <p data-i18n="service_offline_group_desc">Мастер-класс, девичник, день рождения, тим билдинг - организуем любое арт-мероприятие на ваш вкус. Гарантирую вдохновение и много красок!</p>
+                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_btn">Записаться</a>
                     </div>
                 </div>
             </div>
@@ -143,22 +208,37 @@
         <!-- Quiz Teaser -->
         <section id="quiz" class="section quiz-teaser">
             <div class="container">
-                <div class="quiz-content">
-                    <h2 data-i18n="quiz_title">Квиз: Цвет, который ведет тебя</h2>
-                    <p data-i18n="quiz_desc">Узнайте, какой цвет соответствует вашему состоянию сегодня. Мягкий путь к самопознанию.</p>
-                    <a href="quiz.html" class="btn btn-primary" id="start-quiz-btn" data-i18n="quiz_btn">Пройти тест</a>
-                </div>
+                <h2 data-i18n="quiz_title">Квиз: Цвет, который ведет тебя</h2>
+                <p data-i18n="quiz_desc">Узнайте, какой цвет соответствует вашему состоянию сегодня. Мягкий путь к самопознанию.</p>
+                <a href="quiz.html" class="btn" id="start-quiz-btn" data-i18n="quiz_btn">Пройти тест</a>
             </div>
         </section>
 
         <!-- Contacts -->
         <section id="contacts" class="section">
-            <div class="container text-center">
+            <div class="container">
                 <h2 data-i18n="contacts_title">Давайте творить вместе</h2>
                 <p data-i18n="contacts_desc">Свяжитесь со мной для заказа картин или записи на занятия.</p>
+                <p data-i18n="contacts_bot_promo">A если хочется узнать больше об авторе и оставаться на связи, присоединяйся к телеграм-боту</p>
                 <div class="social-links">
-                    <a href="https://t.me/kseniialf" target="_blank" class="social-link">Telegram</a>
-                    <a href="https://www.instagram.com/kseniialf" target="_blank" class="social-link" id="instagram-link">Instagram</a>
+                    <a href="https://t.me/kseniia_alf_bot" target="_blank" class="social-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.84 8.683c-.138.628-.5.781-.996.487l-2.75-2.026-1.326 1.278c-.147.147-.27.27-.554.27l.198-2.802 5.09-4.599c.222-.197-.048-.307-.342-.11l-6.29 3.962-2.707-.844c-.59-.184-.602-.59.123-.874l10.588-4.082c.491-.183.92.11.759.874z"/>
+                        </svg>
+                        <span>Bot</span>
+                    </a>
+                    <a href="https://t.me/kseniialf" target="_blank" class="social-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.84 8.683c-.138.628-.5.781-.996.487l-2.75-2.026-1.326 1.278c-.147.147-.27.27-.554.27l.198-2.802 5.09-4.599c.222-.197-.048-.307-.342-.11l-6.29 3.962-2.707-.844c-.59-.184-.602-.59.123-.874l10.588-4.082c.491-.183.92.11.759.874z"/>
+                        </svg>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://www.instagram.com/kseniialf" target="_blank" class="social-link" id="instagram-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
                 </div>
             </div>
         </section>

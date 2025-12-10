@@ -146,10 +146,23 @@ function showResult() {
             <p class="result-summary" style="font-style: italic; font-weight: bold; margin-bottom: 10px; color: ${resultColor};">${result.short_summary}</p>
             <p class="result-description" style="white-space: pre-wrap; font-style: normal; color: ${resultColor};">${result.description}</p>
         </div>
-        <div class="final-words">
-            <p>${quizData.final_words}</p>
+        
+        <div class="guide-promo">
+            <h2>Хочешь узнать больше про цвет?</h2>
+            <p class="guide-promo-subtitle">Бесплатный гайд по психологии цвета уже доступен</p>
+            
+            <span class="guide-promo-list-label">В файле вы найдете:</span>
+            <ul>
+                <li>список основных цветов и краткую сводку с их значением</li>
+                <li>статьи по каждому цвету, с их характеристиками, а также - воздействие цвета на человека, цитаты великих, и информацию о том, как использовать выбранный цвет в блоге и кому он подойдет</li>
+                <li>финальные слова и напутствие</li>
+            </ul>
+            
+            <div class="result-buttons">
+                <a href="assets/psycology_of_color_guide.pdf" target="_blank" class="btn-primary-action">Открыть гайд</a>
+                <button onclick="closeQuiz()" class="btn-secondary-action">${closeText}</button>
+            </div>
         </div>
-        <button class="btn" onclick="closeQuiz()">${closeText}</button>
     `;
 
     showScreen('result-page');

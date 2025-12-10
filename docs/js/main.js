@@ -32,11 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
-                if (key === 'hero_title') {
-                    element.innerHTML = translations[lang][key];
-                } else {
-                    element.textContent = translations[lang][key];
-                }
+                // Always use innerHTML to allow HTML tags like <br> in translations
+                element.innerHTML = translations[lang][key];
             }
         });
 
@@ -63,8 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (id && translations[lang]) {
                 const title = translations[lang][`p_${id}_title`];
                 const desc = translations[lang][`p_${id}_desc`];
-                if (title) caption.querySelector('h3').textContent = title;
-                if (desc) caption.querySelector('p').textContent = desc;
+                if (title) caption.querySelector('h3').innerHTML = title;
+                if (desc) caption.querySelector('p').innerHTML = desc;
             }
         });
     }

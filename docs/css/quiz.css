@@ -86,21 +86,42 @@ p {
 
 /* Buttons */
 .btn {
-    background-color: var(--button-color);
-    color: var(--button-text-color);
-    border: none;
-    border-radius: 12px;
-    padding: 16px 24px;
-    font-size: 18px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    border-radius: 50px;
+    padding: 15px 35px;
+    font-size: 16px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     cursor: pointer;
     width: 100%;
     margin-top: auto;
-    transition: opacity 0.2s;
+    transition: all 0.3s ease;
 }
 
-.btn:active {
-    opacity: 0.8;
+.btn:active,
+.btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
+}
+
+/* Start button on main page */
+#main-page .btn {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: none;
+    box-shadow: 0 5px 15px rgba(204, 85, 0, 0.3);
+}
+
+#main-page .btn:active,
+#main-page .btn:hover {
+    background-color: #b35900;
+    color: var(--button-text-color);
+    box-shadow: 0 10px 20px rgba(204, 85, 0, 0.4);
 }
 
 /* Answers Grid */
@@ -196,4 +217,219 @@ p {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Guide Promo */
+.guide-promo {
+    margin: 40px 0;
+    text-align: center;
+    padding: 24px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.guide-promo h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.guide-promo p {
+    font-size: 16px;
+    margin-bottom: 24px;
+    color: var(--hint-color);
+}
+
+.guide-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: auto;
+    min-width: 200px;
+    margin-top: 0;
+}
+
+/* Guide Promo Section */
+.guide-promo {
+    background-color: var(--secondary-bg-color);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.guide-promo h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.guide-promo-subtitle {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.guide-promo-list-title {
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.guide-promo ul {
+    margin: 0;
+    padding-left: 20px;
+    margin-bottom: 24px;
+}
+
+.guide-promo li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media (min-width: 480px) {
+    .result-buttons {
+        flex-direction: row;
+    }
+    
+    .result-buttons .btn {
+        flex: 1;
+    }
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid currentColor;
+}
+
+/* Enhanced Guide Promo */
+.guide-promo {
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    padding: 30px 20px;
+    margin: 40px 0;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    color: #000;
+}
+
+.guide-promo h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #000;
+    text-align: center;
+}
+
+.guide-promo-subtitle {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #000;
+    font-size: 16px;
+}
+
+.guide-promo-list-label {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #000;
+    display: block;
+}
+
+.guide-promo ul {
+    margin: 0 0 30px 0;
+    padding-left: 20px;
+    color: #333;
+}
+
+.guide-promo li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-primary-action {
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+    width: 100%;
+    max-width: 320px;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(204, 85, 0, 0.3);
+}
+
+.btn-primary-action:active,
+.btn-primary-action:hover {
+    background-color: #b35900;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(204, 85, 0, 0.4);
+}
+
+.btn-secondary-action {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-action:active,
+.btn-secondary-action:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
+}
+
+/* Close button in bot quiz - only for .btn class (bot uses .btn, regular quiz uses .btn-secondary-action) */
+#result-page .btn:not(.btn-primary-action):not(.btn-secondary-action) {
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+    box-shadow: 0 5px 15px rgba(204, 85, 0, 0.3);
+}
+
+#result-page .btn:not(.btn-primary-action):not(.btn-secondary-action):active,
+#result-page .btn:not(.btn-primary-action):not(.btn-secondary-action):hover {
+    background-color: #b35900;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(204, 85, 0, 0.4);
 }

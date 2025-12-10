@@ -135,6 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateCarousel() {
             if (slides.length === 0) return;
             
+            // Get gap from computed styles
+            const style = window.getComputedStyle(track);
+            const gap = parseFloat(style.gap) || 0;
+
             // Calculate items per view based on CSS
             const containerWidth = track.parentElement.getBoundingClientRect().width;
             const slideWidth = slides[0].getBoundingClientRect().width;
@@ -145,7 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentIndex > maxIndex) currentIndex = maxIndex;
             if (currentIndex < 0) currentIndex = 0;
 
-            track.style.transform = 'translateX(-' + (slideWidth * currentIndex) + 'px)';
+            // Calculate translation including gap
+            const moveAmount = (slideWidth + gap) * currentIndex;
+            track.style.transform = 'translateX(-' + moveAmount + 'px)';
         }
 
         window.addEventListener('resize', updateCarousel);
@@ -178,6 +184,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 updateCarousel();
             });
+        }
+
+        // --- Touch Support ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeArea = track.parentElement; // Use container to avoid issues with moving element
+
+        swipeArea.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 50; // Minimum distance for swipe
+            if (touchEndX < touchStartX - threshold) {
+                // Swipe Left -> Next
+                if (nextButton) nextButton.click();
+            }
+            if (touchEndX > touchStartX + threshold) {
+                // Swipe Right -> Prev
+                if (prevButton) prevButton.click();
+            }
         }
         
         setTimeout(updateCarousel, 100);

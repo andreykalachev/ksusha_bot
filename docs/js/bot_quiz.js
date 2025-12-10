@@ -1,3 +1,9 @@
+// Telegram WebApp
+const tg = window.Telegram?.WebApp;
+if (tg) {
+    tg.expand();
+}
+
 // State
 let quizData = null;
 let currentQuestionIndex = 0;
@@ -134,10 +140,13 @@ function showResult() {
         return;
     }
 
-    let closeText = quizData.close_button || "Вернуться на главную";
+    let closeText = lang === 'ru' ? "Закрыть" : "Close";
 
     // Determine colors
     let resultColor = result.color || 'var(--button-color)';
+    if (tg && tg.colorScheme === 'dark' && result.color_dark) {
+        resultColor = result.color_dark;
+    }
 
     resultPage.innerHTML = `
         <img src="assets/quiz/${result.image}" class="hero-image" alt="${result.title}">
@@ -156,5 +165,7 @@ function showResult() {
 }
 
 function closeQuiz() {
-    window.location.href = 'index.html';
+    if (tg) {
+        tg.close();
+    }
 }

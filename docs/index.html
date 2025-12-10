@@ -1,31 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Color Quiz</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <link rel="stylesheet" href="css/quiz.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kseniia ALF | Пространство творчества и цвета</title>
+    <meta name="description" content="Абстрактная живопись, арт-терапия и обучение рисованию.">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <div id="loading" class="screen active">
-            <div class="loader"></div>
-        </div>
-        
-        <div id="main-page" class="screen">
-            <!-- Content injected by JS -->
-        </div>
 
-        <div id="question-page" class="screen">
-            <!-- Content injected by JS -->
-        </div>
+    <header class="site-header">
+        <nav class="container">
+            <div class="logo">Kseniia ALF</div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav_home">Главная</a></li>
+                <li><a href="#about" data-i18n="nav_about">Обо мне</a></li>
+                <li><a href="paintings.html" data-i18n="nav_gallery">Картины</a></li>
+                <li><a href="#services" data-i18n="nav_services">Услуги</a></li>
+                <li><a href="#contacts" data-i18n="nav_contacts">Контакты</a></li>
+                <li class="lang-switcher">
+                    <span class="lang-btn active" data-lang="ru">RU</span> | 
+                    <span class="lang-btn" data-lang="en">EN</span>
+                </li>
+            </ul>
+            <button class="menu-toggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
-        <div id="result-page" class="screen">
-            <!-- Content injected by JS -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h1 class="fade-in" data-i18n="hero_title">Пространство<br>творчества и цвета</h1>
+                <p class="subtitle fade-in delay-1" data-i18n="hero_subtitle">Абстрактная живопись • Арт-терапия • Обучение</p>
+                <div class="hero-buttons fade-in delay-2">
+                    <div class="hero-btn-group">
+                        <a href="paintings.html" class="btn btn-primary" data-i18n="hero_btn_gallery">Смотреть работы</a>
+                        <a href="#services" class="btn btn-outline" data-i18n="hero_btn_prices">Цены</a>
+                    </div>
+                    <a href="quiz.html" class="btn btn-text-quiz" data-i18n="hero_btn_quiz">Квиз: Цвет, который ведет тебя</a>
+                </div>
+            </div>
+            <div class="hero-background">
+                <!-- Abstract shapes will be added via CSS/SVG -->
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container grid-2">
+                <div class="text-content">
+                    <h2 data-i18n="about_title">Знакомство</h2>
+                    <p data-i18n="about_text_1">Я Ксения ALF, художник в третьем поколении. Пишу абстрактные картины, выражая чувства через форму и цвет.</p>
+                    <p data-i18n="about_text_2">Для меня искусство — это путь к себе, к своим чувствам и свободе самовыражения. Я помогаю другим найти этот путь через арт-терапию и обучение.</p>
+                </div>
+                <div class="image-content">
+                    <img src="assets/artist.jpg" alt="Kseniia ALF" class="artist-photo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview -->
+        <section id="gallery" class="section bg-light">
+            <div class="container">
+                <h2 data-i18n="gallery_title">Мои картины</h2>
+                
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" aria-label="Previous">&lt;</button>
+                    <div class="carousel-track-container">
+                        <ul class="carousel-track">
+                            <!-- Carousel items will be injected by JS -->
+                        </ul>
+                    </div>
+                    <button class="carousel-btn next" aria-label="Next">&gt;</button>
+                </div>
+                
+                <div class="center-btn">
+                    <a href="paintings.html" class="btn btn-text" data-i18n="gallery_view_all">Смотреть все картины &rarr;</a>
+                    <br><br>
+                    <a href="https://www.behance.net/kseniialf" target="_blank" class="btn btn-text" data-i18n="gallery_btn_behance">Смотреть портфолио на Behance &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 data-i18n="services_title">Поработать со мной</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 data-i18n="service_1_title">Арт-терапия</h3>
+                        <p class="price" data-i18n="service_1_price">35€ / час</p>
+                        <p data-i18n="service_1_desc">Онлайн сессия с использованием МАК карт. Поиск пути из точки А в точку Б.</p>
+                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_1_btn">Записаться</a>
+                    </div>
+                    <div class="service-card">
+                        <h3 data-i18n="service_2_title">Онлайн рисование</h3>
+                        <p class="price" data-i18n="service_2_price">35€ / час</p>
+                        <p data-i18n="service_2_desc">Техники рисования, подготовка к художественной школе или рисование "для души".</p>
+                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_2_btn">Записаться</a>
+                    </div>
+                    <div class="service-card">
+                        <h3 data-i18n="service_3_title">Оффлайн встречи</h3>
+                        <p class="price" data-i18n="service_3_price">40€ / час</p>
+                        <p data-i18n="service_3_desc">Мастер-классы и личный творческий путь. Живое общение и творчество.</p>
+                        <a href="https://t.me/kseniialf" class="btn btn-small" data-i18n="service_3_btn">Записаться</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Teaser -->
+        <section id="quiz" class="section quiz-teaser">
+            <div class="container">
+                <div class="quiz-content">
+                    <h2 data-i18n="quiz_title">Цветовой тест</h2>
+                    <p data-i18n="quiz_desc">Узнайте, какой цвет соответствует вашему состоянию сегодня. Мягкий путь к самопознанию.</p>
+                    <a href="quiz.html" class="btn btn-primary" id="start-quiz-btn" data-i18n="quiz_btn">Пройти тест</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacts -->
+        <section id="contacts" class="section">
+            <div class="container text-center">
+                <h2 data-i18n="contacts_title">Давайте творить вместе</h2>
+                <p data-i18n="contacts_desc">Свяжитесь со мной для заказа картин или записи на занятия.</p>
+                <div class="social-links">
+                    <a href="https://t.me/kseniialf" target="_blank" class="social-link">Telegram</a>
+                    <a href="https://www.instagram.com/kseniialf" target="_blank" class="social-link" id="instagram-link">Instagram</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p data-i18n="footer_rights">&copy; 2025 Kseniia ALF. Все права защищены.</p>
         </div>
-    </div>
-    <script src="js/quiz.js"></script>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+:root {
+    /* Colors */
+    --primary-color: #E67E22; /* Warm Orange */
+    --primary-light: #F39C12;
+    --text-color: #2C3E50;
+    --text-light: #7F8C8D;
+    --bg-color: #FAFAFA;
+    --bg-light: #F0F0F0;
+    --white: #FFFFFF;
+    --accent: #D35400;
+
+    /* Fonts */
+    --font-main: 'Montserrat', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+
+    /* Spacing */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --container-width: 1200px;
+
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+}

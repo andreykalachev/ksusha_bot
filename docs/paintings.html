@@ -84,67 +84,88 @@
         <section class="section shipping-info" style="background: var(--bg-secondary); padding: 60px 0;">
             <div class="container">
                     <h2 data-i18n="shipping_title" style="text-align:left; margin-bottom: 30px;">Условия доставки и логистика</h2>
-                <p data-i18n="shipping_intro" style="text-align: left; max-width: 800px; margin: 0 0 40px 0; opacity: 0.9;">
+                <p data-i18n="shipping_intro" style="text-align: left; margin: 0 0 20px 0; opacity: 0.9;">
                     Мои картины находятся в студиях в трех городах: Санкт-Петербурге (Россия), Порту (Португалия) и Генуе (Италия). Ниже вы найдете детали отправки в зависимости от вашего региона.
                 </p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                <div class="shipping-accordion">
                     <!-- Europe Shipping -->
-                    <div class="shipping-card" style="background: var(--bg-color); padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                            <h3 data-i18n="shipping_europe_title" class="cv-shipping-header" style="text-align:left;">🇪🇺 Доставка по Европе и миру</h3>
-                        <p data-i18n="shipping_europe_from" style="margin-bottom: 15px;"><strong>Отправка осуществляется из Порту (Португалия) или Генуи (Италия).</strong></p>
-                        <ul style="list-style: none; padding: 0;">
-                                <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
-                                <span style="position: absolute; left: 0;">•</span>
-                                <span data-i18n="shipping_europe_carriers">Службы доставки: Мы используем надежные сервисы DHL, UPS или национальные почтовые службы (CTT, Poste Italiane) для обеспечения сохранности искусства.</span>
-                            </li>
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
-                                <span style="position: absolute; left: 0;">•</span>
-                                <span data-i18n="shipping_europe_time">Сроки: В среднем 5–10 рабочих дней по Европе.</span>
-                            </li>
-                            <li style="padding-left: 20px; position: relative;">
-                                <span style="position: absolute; left: 0;">•</span>
-                                <span data-i18n="shipping_europe_cost">Стоимость: Начальная стоимость доставки — от 35€. Итоговая цена зависит от веса, габаритов картины и страны назначения.</span>
-                            </li>
-                        </ul>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-i18n="shipping_europe_title">🇪🇺 Доставка по Европе и миру</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p data-i18n="shipping_europe_from" style="margin-bottom: 15px;"><strong>Отправка осуществляется из Порту (Португалия) или Генуи (Италия).</strong></p>
+                                <ul style="list-style: none; padding: 0;">
+                                        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <span data-i18n="shipping_europe_carriers">Службы доставки: Мы используем надежные сервисы DHL, UPS или национальные почтовые службы (CTT, Poste Italiane) для обеспечения сохранности искусства.</span>
+                                    </li>
+                                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <span data-i18n="shipping_europe_time">Сроки: В среднем 5–10 рабочих дней по Европе.</span>
+                                    </li>
+                                    <li style="padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <span data-i18n="shipping_europe_cost">Стоимость: Начальная стоимость доставки — от 35€. Итоговая цена зависит от веса, габаритов картины и страны назначения.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     
                     <!-- Russia Shipping -->
-                    <div class="shipping-card" style="background: var(--bg-color); padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                            <h3 data-i18n="shipping_russia_title" class="cv-shipping-header" style="text-align:left;">🇷🇺 Доставка из России</h3>
-                        <p data-i18n="shipping_russia_from" style="margin-bottom: 15px;"><strong>Отправка осуществляется из Санкт-Петербурга.</strong></p>
-                        <ul style="list-style: none; padding: 0;">
-                                <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
-                                <span style="position: absolute; left: 0;">•</span>
-                                <span data-i18n="shipping_russia_domestic">По России: Оптимальный вариант — курьерская служба СДЭК (до двери или до пункта выдачи). Это быстро, надежно и бережно по отношению к искусству.</span>
-                            </li>
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
-                                <span style="position: absolute; left: 0;">•</span>
-                                <span data-i18n="shipping_russia_international">Из России в Европу/Мир: Отправка осуществляется службой EMS (Почта России).</span>
-                            </li>
-                            <li style="padding-left: 20px; position: relative;">
-                                <span style="position: absolute; left: 0;">•</span>
-                                <span data-i18n="shipping_russia_important">Важно: Для вывоза картин за границу оформляется обязательное разрешение Министерства Культуры РФ. Это может добавить к сроку доставки 1–2 недели.</span>
-                            </li>
-                        </ul>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-i18n="shipping_russia_title">🇷🇺 Доставка из России</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p data-i18n="shipping_russia_from" style="margin-bottom: 15px;"><strong>Отправка осуществляется из Санкт-Петербурга.</strong></p>
+                                <ul style="list-style: none; padding: 0;">
+                                        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <span data-i18n="shipping_russia_domestic">По России: Оптимальный вариант — курьерская служба СДЭК (до двери или до пункта выдачи). Это быстро, надежно и бережно по отношению к искусству.</span>
+                                    </li>
+                                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <span data-i18n="shipping_russia_international">Из России в Европу/Мир: Отправка осуществляется службой EMS (Почта России).</span>
+                                    </li>
+                                    <li style="padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <span data-i18n="shipping_russia_important">Важно: Для вывоза картин за границу оформляется обязательное разрешение Министерства Культуры РФ. Это может добавить к сроку доставки 1–2 недели.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Packaging Information -->
-                <div class="packaging-info" style="background: var(--bg-color); padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 data-i18n="shipping_packaging_title" style="margin-bottom: 20px; color: var(--accent-color);">Важная информация об упаковке</h3>
-                    <p data-i18n="shipping_packaging_intro" style="margin-bottom: 15px;">В целях безопасности и оптимизации стоимости доставки, картины могут быть отправлены двумя способами:</p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
-                        <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
-                            <span style="position: absolute; left: 0;">•</span>
-                            <strong data-i18n="shipping_packaging_rolled">В тубусе (в рулоне): Холст снимается с подрамника и сворачивается. Это самый безопасный способ для пересылки крупных форматов.</strong>
-                        </li>
-                        <li style="padding-left: 20px; position: relative;">
-                            <span style="position: absolute; left: 0;">•</span>
-                            <strong data-i18n="shipping_packaging_stretched">В полноценном размере: Картина отправляется на подрамнике в жесткой защитной упаковке.</strong>
-                        </li>
-                    </ul>
-                    <p data-i18n="shipping_packaging_note" style="font-style: italic; opacity: 0.9;">Пожалуйста, уточните формат упаковки для конкретной картины перед оформлением заказа.</p>
+                    
+                    <!-- Packaging Information -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-i18n="shipping_packaging_title">Важная информация об упаковке</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p data-i18n="shipping_packaging_intro" style="margin-bottom: 15px;">В целях безопасности и оптимизации стоимости доставки, картины могут быть отправлены двумя способами:</p>
+                                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <strong data-i18n="shipping_packaging_rolled">В тубусе (в рулоне): Холст снимается с подрамника и сворачивается. Это самый безопасный способ для пересылки крупных форматов.</strong>
+                                    </li>
+                                    <li style="padding-left: 20px; position: relative;">
+                                        <span style="position: absolute; left: 0;">•</span>
+                                        <strong data-i18n="shipping_packaging_stretched">В полноценном размере: Картина отправляется на подрамнике в жесткой защитной упаковке.</strong>
+                                    </li>
+                                </ul>
+                                <p data-i18n="shipping_packaging_note" style="font-style: italic; opacity: 0.9;">Пожалуйста, уточните формат упаковки для конкретной картины перед оформлением заказа.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

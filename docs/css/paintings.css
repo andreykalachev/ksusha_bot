@@ -514,4 +514,88 @@
         font-size: clamp(1.5rem, 5vw, 2rem);
         margin: 5vw 0 4vw 0;
     }
+
+    /* Accordion: reset full-bleed on small screens so it aligns with container */
+    .shipping-accordion {
+        width: auto;
+        position: static;
+        left: auto;
+        right: auto;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 2vw;
+        box-sizing: border-box;
+    }
+
+    .accordion-header {
+        padding: 14px 12px;
+        font-size: 1rem;
+    }
+
+    .accordion-body {
+        padding: 0 12px 16px 12px;
+    }
+}
+
+/* Accordion Styles */
+.shipping-accordion {
+    /* Align accordion to container width so it matches intro text */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0; /* will inherit container centering */
+    padding: 0; /* keep items themselves responsible for inner spacing */
+}
+
+.accordion-item {
+    background: var(--bg-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color); /* neutral, not orange */
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.2s ease;
+}
+
+.accordion-header:hover {
+    background-color: rgba(0,0,0,0.02);
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-light); /* subtle neutral icon color */
+    transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(45deg);
+    color: var(--text-color);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-body {
+    padding: 0 20px 20px 20px;
+    color: var(--text-color);
+    line-height: 1.6;
 }

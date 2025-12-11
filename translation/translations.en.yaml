@@ -4,11 +4,12 @@ ABOUT_TEXT: |
 
   I'm Ksenia ALF - a third‑generation artist painting in a soft, abstract style. I create artworks that celebrate femininity, warmth and emotional color.
 
-  This bot is your little creative studio: explore paintings, learn through short guides, try a playful art-style quiz and connect with me for commissions or sessions. Tap around and let's discover what colors say about you! 🎨💬
+  This bot is your little creative space: explore paintings, learn through short guides, try a playful art-style quiz and connect with me for commissions or sessions. 
+  Tap around and let's discover what colors say about you! 🎨💬
 INFO_TEXT: |
   I'm Ksenia ALF - artist, art therapist and teacher. My journey in art is a journey to myself, to feelings and to the freedom of self-expression.
   
-  Here you can learn more about me and download my portfolio (PDF).
+  Here you can learn more about me and download my CV (PDF).
   
   Want to know more? Just send me a message!
 SERVICES_TEXT: |
@@ -16,20 +17,24 @@ SERVICES_TEXT: |
 
   Here’s how we can work together:
 
-  🧡 Online Art-Therapy - 35€/hour
+  🎨 Online drawing - 20€/hour
 
-  We’ll gently explore your request, use MOСK cards, draw your current point A and create point B - with a clear and inspiring strategy to reach it.
+  Just enjoy the color and the process, or learn something specific! Preparing for art school, mastering techniques or drawing "for the soul".
 
-  🎨 Online Painting - 35€/hour
+  🧡 Online art therapy - 30€/hour
 
-  Just enjoy painting and colors, or learn something specific! Art school preparation, mastering techniques, or simply drawing for pleasure.
+  We will gently and carefully analyze your request, and then, using MACRO maps and color psychology, we will draw point "A" and create point "B" - with an inspiring path on how to reach it.
 
-  🍊 Offline Meetings - 40€/hour
+  🍊 In-person  individual meetings in any format - 30€/hour
+  
+  Everything is possible here - creating a personal creative path, consulting, assistance in preparing for competitions or admission!
 
-  Individual master class, art-therapy session, creating your personal path through colors, preparation for competitions or admission.
-  Warm communication and lots of inspiration!
+  🍊 In-person group meetings of any format - 20€/hour per person
 
-  Ready to begin? Send me a message @kseniialf
+    Master class, bachelorette party, birthday, team building - we will introduce art into any event to your taste. 
+    I guarantee inspiration and lots of colors!
+
+  Write to me to discuss the terms and book a day @kseniialf
 PAINTINGS_TEXT: |
   My works celebrate softness, femininity and emotional warmth - each canvas is an invitation to feel. 💗
 
@@ -39,7 +44,7 @@ PAINTINGS_TEXT: |
   • Collaborations with designers, galleries and brands 🌸
 
   Worldwide shipping available 🌍 - installment options on request. For inquiries, DMs are open: @kseniialf 💌
-CONTACTS_TEXT: "I’m always happy to connect - tap any button below to reach me directly. Let’s make something beautiful together! 🤍"
+CONTACTS_TEXT: "I am always glad to communicate and to collaborate - click any button below to get in touch. Let's create something beautiful together! 🤍"
 GUIDE_GREET: |
   Hello, beautiful! ❤️
 
@@ -50,24 +55,20 @@ ARTICLES_MENU_GREETING: "Choose an article or take the quiz - let's discover you
 REVIEWS_TEXT: |
   Here you can read reviews about my work on Profi.ru. Thank you to everyone who shares their impressions!
 MINI_SHOP_TEXT: |
-  Welcome to Ksusha's Mini-shop! Here you'll find unique mini-products made with love and inspiration.
-
-  To order, send a DM or reach out on Instagram. All items are available in limited quantities!
-
-  Below are examples of mini-products:
+  Welcome to shop! Here you'll find unique mini-products made with love and inspiration.
 INSPIRATION_INTRO: |
   🧡 Your random inspiration for today:
 
 INSPIRATION_OUTRO: |
-  Let this color enter your reality a little: through an image, a mood, or a small drawing.
+  Let this color enter your reality a little: through an image, a mood or a small drawing.
   Don't forget about today's task! 
   Kisses!😘
-CERTIFICATE_TEXT: "Use and enjoy! ✨"
+CERTIFICATE_TEXT: "To get a certificate, please send me a message @kseniialf ✨"
 
 SUPPORT_TEXT: |
   If you enjoy my art and would like to support me, I would be immensely grateful! 🧡
   
-  Your support helps me create new works, develop projects, and share inspiration.
+  Your support helps me create new works, develop projects and share inspiration.
 
 SUPPORT_NOTE: "Supporting creator"
 
@@ -93,7 +94,7 @@ HELP_TEXT: |
   - /reviews - reviews
   - /minishop - mini shop
   - /info - about me
-  - /certificate - certificate
+  - /certificate - gift certificate
   - /inspiration - inspiration
   - /statistics - statistics
 
@@ -108,14 +109,14 @@ LABEL_ARTICLES: "📝 Free products"
 LABEL_CONTACTS: "📬 Contacts"
 LABEL_REVIEWS: "⭐️ Reviews"
 LABEL_MINI_SHOP: "🛍️ Mini Shop"
-LABEL_CERTIFICATE: "🎁 Certificate"
+LABEL_CERTIFICATE: "🎁 Gift certificate"
 LABEL_REVIEWS_LINK: "Open reviews on Profi.ru"
 LABEL_QUIZ: "🎨 Quiz: The Color That Leads You"
 LABEL_GUIDE: "Guide: Psychology of Color"
 LABEL_ARTIST_DAY: "Youtube: Artist's Day"
 LABEL_INSPIRATION: "Where to find inspiration?"
 LABEL_INSPIRATION_LINK: "Article"
-LABEL_INSPIRATION_GENERATOR: "✨ Inspiration for today"
+LABEL_INSPIRATION_GENERATOR: "✨ Daily art pulse"
 LABEL_INSPIRATION_NEW: "🔄 Generate New"
 LABEL_SUPPORT: "💵 Support"
 LABEL_SUPPORT_PAY: "💳 Support via Stripe"
@@ -123,6 +124,7 @@ CONTACTS_BTN_TELEGRAM: "Telegram"
 CONTACTS_BTN_CHANNEL: "Telegram channel"
 CONTACTS_BTN_INSTAGRAM: "Instagram"
 CONTACTS_BTN_BEHANCE: "Behance"
+CONTACTS_BTN_EMAIL: "Email"
 CONTACTS_BTN_WEBSITE: "Website"
 
 # Navigation & System
